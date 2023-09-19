@@ -1,0 +1,189 @@
+.h4-title-card {
+    color: antiquewhite;
+
+    border: 3px solid blueviolet;
+    padding: 2px;
+
+    width: 50%;
+    height: 45px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#signin_form {
+    width: 50%; align-items: center; padding: 10px; display: block; margin-left: auto; margin-right: auto;
+}
+
+.form-group {
+    padding: 5px;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+.navbar{
+    font-family: Arial, sans-serif;
+    font-size: medium;
+}
+.home-bar{
+    background-color: #B34438;
+    height: 550px;
+}
+.welcome{
+    font-size: 85px;
+    text-align: center;
+    color: white;
+    font-family: Fondset;
+    font-weight: bold;
+}
+
+.capital{
+    text-transform: uppercase;
+}
+
+.index-welcome{
+    width: 600px;
+    line-height: 70px;
+}
+
+.card-img-top1{
+    padding-top: 20px;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.category{
+    text-align: left;
+}
+.subcategory{
+    text-align: center;
+}
+
+.sub :link .sub :visited{
+    text-decoration: none 
+} 
+
+.header-bar{
+    background-color: #e68a00;
+    height: 120px;
+}
+.header{
+    font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-indent: 100px;
+    font-size: 50px;
+    line-height: 40px;
+    color: white;
+    word-spacing: 10px;
+}
+
+.line2{
+    text-indent: 250px;
+}
+
+.line1{
+    padding-top: 10px;
+}
+
+.banner{
+    float: right;
+    width : 650px;
+    height: 120px;
+
+}
+
+
+.pruduct-dis{
+    padding-left: 350px;
+}
+
+.product-card{
+    width: 800px;
+}
+
+
+.select-option{
+    padding-left: 30px;
+    padding-top: 8px;
+}
+
+
+.dropdown-submenu{
+    position: relative;
+}
+.dropdown-submenu a::after{
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 3px;
+    top: 40%;
+}
+.dropdown-submenu:hover .dropdown-menu, .dropdown-submenu:focus .dropdown-menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute !important;
+    margin-top: -30px;
+    left: 100%;
+}
+
+@media (max-width: 992px) {
+    .dropdown-menu{
+        width: 50%;
+    }
+    .dropdown-menu .dropdown-submenu{
+        width: auto;
+    }
+}
+
+.logo{
+    padding-left: 200px;
+}
+.category-name{
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
+.sub-cat-img{
+    padding-top: 30px;
+    object-fit: contain;
+
+}
