@@ -1,38 +1,34 @@
-<html>
-    <head>
-        <title> Texas Electronics</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
+<?php
 
-    <body>
-        <div id="header"> 
-            <div id="logo">
-                <img src="imgs/logo1.png" />
+const DS = DIRECTORY_SEPARATOR;
+define('ROOT', dirname(__FILE__));
 
-            </div> <!-- end of logo -->
+// load configuration and helper functions
+require_once(ROOT . DS . 'config' . DS . 'config.php');
+require_once(ROOT . DS . 'app' . DS . 'lib' . DS . 'helpers' . DS . 'functions.php');
 
-            <div id="link">
-                <ul>
+// autoload classes
+spl_autoload_register(function ($className) {
+    if (file_exists(ROOT . DS . 'core' . DS . $className . '.php')) {
+        require_once(ROOT . DS . 'core' . DS . $className . '.php');
+    } elseif (file_exists(ROOT . DS . 'app' . DS . 'controllers' . DS . $className . '.php')) {
+        require_once(ROOT . DS . 'app' . DS . 'controllers' . DS . $className . '.php');
+    } elseif (file_exists(ROOT . DS . 'app' . DS . 'models' . DS . $className . '.php')) {
+        require_once(ROOT . DS . 'app' . DS . 'models' . DS . $className . '.php');
+    }
+});
 
-                    <li>
-                        <a href="#">Sign up </a>
-                    </li>
-                    <li>
-                        <a href="#">login </a>
-                    </li>
-                </ul>
+session_start();
 
-            </div> <!-- end of link -->
+$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : [];
 
-            <div>
-                <div id="search">
-                    <form method="get" enctype="multipart/form-data">
-                        <input type="text" placeholder="Search From Here...">
-                        <button id="search_button">Search</button> 
-                        <button id="cart_button">Cart</button>
-                    </form>
-                </div><!-- end of search -->
-            </div>
-        </div> <!-- end of header--
-    </body>
-</html>
+// database instance
+$db = Db::getInstance();
+
+// auto login user from cookies
+if (!Session::exists(CURRENT_USER_SESSION_NAME) && Cookie::exists(REMEMBER_ME_COOKIE_NAME)) {
+    Customer::signinUserFromCookie();
+}
+
+// route the request
+Router::route($url);
